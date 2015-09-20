@@ -76,7 +76,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Map.cpp" />
     <ClCompile Include="ThreeTilePiece.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="mainCamouflage.cpp" />

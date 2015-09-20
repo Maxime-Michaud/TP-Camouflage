@@ -18,6 +18,7 @@ Description :   */
 #include "Piece.h"
 #include "TwoTilePiece.h"
 #include "ThreeTilePiece.h"
+#include "Map.h"
 
 //Raccourci pour les laches 
 #define PAUSE system("pause>NUL")
@@ -28,31 +29,31 @@ using namespace std;
 /* Méthode principale
 ====================== */
 int main() {
+	Map<char>;
+	//Piece *pieces[2];
+	//pieces[0] = new ThreeTilePiece('1', '1', '2', NULL, '3');
+	//pieces[1] = new TwoTilePiece('A', 'a', 'b',NULL, NULL);
 
-	Piece *pieces[2];
-	pieces[0] = new ThreeTilePiece('1', '1', '2', NULL, '3');
-	pieces[1] = new TwoTilePiece('A', 'a', 'b',NULL, NULL);
 
+	//for (auto piece : pieces) {
+	//	cout << "\nLa pièce " << piece->getName() << " : ";
+	//	piece->print(cout);
 
-	for (auto piece : pieces) {
-		cout << "\nLa pièce " << piece->getName() << " : ";
-		piece->print(cout);
+	//	while (piece->rotation()) {
+	//		cout << endl << "Rotation #" << piece->getRotation() << endl;
+	//		cout << *piece;
+	//	}
+	//	cout << "\n\n\n";
 
-		while (piece->rotation()) {
-			cout << endl << "Rotation #" << piece->getRotation() << endl;
-			cout << *piece;
-		}
-		cout << "\n\n\n";
+	//}
+	//
+	//PAUSE;
 
-	}
-	
-	PAUSE;
-
-	/*Changer le for pour un foreach, donc pas besoin de le changer chaque fois qu'on change 
-	  le nombre pièces*/
-	for (auto piece: pieces) {
-		delete piece;
-	}
+	///*Changer le for pour un foreach, donc pas besoin de le changer chaque fois qu'on change 
+	//  le nombre pièces*/
+	//for (auto piece: pieces) {
+	//	delete piece;
+	//}
 
 	return 0;
 
