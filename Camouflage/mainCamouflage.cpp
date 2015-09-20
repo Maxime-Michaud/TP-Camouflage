@@ -62,13 +62,9 @@ int main() {
 
 #else
 
-//Fonction main de test
-void main()
+//Fonctions de test 
+void testMapVide()
 {
-	//Tests sur la classe Map de base
-	//=================================================================================================================
-	
-	//Tests sur une map vide
 	Map vide;
 	cout << "Affichage d'une map vide: \n" << vide;
 
@@ -94,9 +90,12 @@ void main()
 
 	cout << "vide.getSizeX(): " << vide.getSizeX()
 		<< "\nvide.getSizeY(): " << vide.getSizeY()
-		<< "\nvide.getSize(): " << string("(" +to_string(vide.getSize().first) + ", " + to_string(vide.getSize().second) + ")") << endl << endl << endl;
+		<< "\nvide.getSize(): " << string("(" + to_string(vide.getSize().first) + ", " + to_string(vide.getSize().second) + ")") << endl << endl << endl;
+}
 
-	//Tests sur la map expert25
+void testMapExp25()
+{
+
 	//Constructeur qui appel init()
 	Map exp25("./Maps/mapExpert25.txt");
 	cout << "Affichage d'une map chargée a partir d'un fichier texte: \n" << exp25;
@@ -124,9 +123,12 @@ void main()
 
 	cout << "exp25.getSizeX(): " << exp25.getSizeX()
 		<< "\nexp25.getSizeY(): " << exp25.getSizeY()
-		<< "\nexp25.getSize(): " << string("(" +to_string(exp25.getSize().first) + ", " + to_string(exp25.getSize().second) + ")") << endl << endl << endl;
+		<< "\nexp25.getSize(): " << string("(" + to_string(exp25.getSize().first) + ", " + to_string(exp25.getSize().second) + ")") << endl << endl << endl;
 
-	//Tests divers
+}
+
+void testMapDivers()
+{
 	try {
 		cout << "Initialisation avec un fichier invalide\n";
 		Map fail("..\~./Obviously`very !WRONG! filepath..notatxtfile");
@@ -134,12 +136,20 @@ void main()
 	catch (const exception & e)
 	{
 		cout << e.what() << endl << endl;
-	} 
+	}
+}
+//Fonction main de test
+void main()
+{
+	//Tests sur la classe Map de base
+	//=================================================================================================================
+	testMapVide();
+	testMapExp25();
+	testMapDivers();
 
 	system("pause>NUL");
 
 
 }
-
 
 #endif
