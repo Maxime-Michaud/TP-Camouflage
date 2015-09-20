@@ -25,36 +25,121 @@ Description :   */
 
 using namespace std;
 
+#define TESTING_
+
+#ifndef TESTING_
 
 /* Méthode principale
 ====================== */
 int main() {
-	Map<char>;
-	//Piece *pieces[2];
-	//pieces[0] = new ThreeTilePiece('1', '1', '2', NULL, '3');
-	//pieces[1] = new TwoTilePiece('A', 'a', 'b',NULL, NULL);
+	Piece *pieces[2];
+	pieces[0] = new ThreeTilePiece('1', '1', '2', NULL, '3');
+	pieces[1] = new TwoTilePiece('A', 'a', 'b',NULL, NULL);
 
 
-	//for (auto piece : pieces) {
-	//	cout << "\nLa pièce " << piece->getName() << " : ";
-	//	piece->print(cout);
+	for (auto piece : pieces) {
+		cout << "\nLa pièce " << piece->getName() << " : ";
+		piece->print(cout);
 
-	//	while (piece->rotation()) {
-	//		cout << endl << "Rotation #" << piece->getRotation() << endl;
-	//		cout << *piece;
-	//	}
-	//	cout << "\n\n\n";
+		while (piece->rotation()) {
+			cout << endl << "Rotation #" << piece->getRotation() << endl;
+			cout << *piece;
+		}
+		cout << "\n\n\n";
 
-	//}
-	//
-	//PAUSE;
+	}
+	
+	PAUSE;
 
-	///*Changer le for pour un foreach, donc pas besoin de le changer chaque fois qu'on change 
-	//  le nombre pièces*/
-	//for (auto piece: pieces) {
-	//	delete piece;
-	//}
+	/*Changer le for pour un foreach, donc pas besoin de le changer chaque fois qu'on change le nombre pièces*/
+	for (auto piece: pieces) {
+		delete piece;
+	}
 
 	return 0;
 
 }
+
+#else
+
+//Fonction main de test
+void main()
+{
+	//Tests sur la classe Map de base
+	//=================================================================================================================
+	
+	//Tests sur une map vide
+	Map vide;
+	cout << "Affichage d'une map vide: \n" << vide;
+
+	try {
+		cout << "vide.getValue(0, 0);\n";
+		cout << vide.getValue(0, 0);
+		cout << "Getvalue réussi";
+	}
+	catch (const exception & e)
+	{
+		cout << e.what() << endl << endl;
+	}
+
+	try {
+		cout << "vide.setValue(0, 0, 'a');\n";
+		vide.setValue(0, 0, 'a');
+		cout << "Setvalue réussi";
+	}
+	catch (const exception & e)
+	{
+		cout << e.what() << endl << endl;
+	}
+
+	cout << "vide.getSizeX(): " << vide.getSizeX()
+		<< "\nvide.getSizeY(): " << vide.getSizeY()
+		<< "\nvide.getSize(): " << string("(" +to_string(vide.getSize().first) + ", " + to_string(vide.getSize().second) + ")") << endl << endl << endl;
+
+	//Tests sur la map expert25
+	//Constructeur qui appel init()
+	Map exp25("./Maps/mapExpert25.txt");
+	cout << "Affichage d'une map chargée a partir d'un fichier texte: \n" << exp25;
+
+	try {
+		cout << "exp25.getValue(0, 0); ";
+		cout << exp25.getValue(0, 0);
+		cout << "\nGetvalue réussi\n";
+	}
+	catch (const exception & e)
+	{
+		cout << e.what() << endl << endl;
+	}
+
+	try {
+		cout << "exp25.setValue(0, 0, 'a');\n";
+		exp25.setValue(0, 0, 'a');
+		cout << "Setvalue réussi\n";
+		cout << "\n" << "Nouvelle map\n" << exp25 << '\n';
+	}
+	catch (const exception & e)
+	{
+		cout << e.what() << endl << endl;
+	}
+
+	cout << "exp25.getSizeX(): " << exp25.getSizeX()
+		<< "\nexp25.getSizeY(): " << exp25.getSizeY()
+		<< "\nexp25.getSize(): " << string("(" +to_string(exp25.getSize().first) + ", " + to_string(exp25.getSize().second) + ")") << endl << endl << endl;
+
+	//Tests divers
+	try {
+		cout << "Initialisation avec un fichier invalide\n";
+		Map fail("..\~./Obviously`very !WRONG! filepath..notatxtfile");
+	}
+	catch (const exception & e)
+	{
+		cout << e.what() << endl << endl;
+	} 
+
+	system("pause>NUL");
+
+
+}
+
+
+#endif
