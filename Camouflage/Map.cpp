@@ -7,7 +7,7 @@ Map::Map()
 }
 
 //Copie les valeurs de l'autre map dans la nouvelle. Permet la copie d'une map vide.
-Map::Map(Map & other)
+Map::Map(const Map & other)
 {
 	_lignes = other._lignes;
 	_colonnes = other._colonnes;

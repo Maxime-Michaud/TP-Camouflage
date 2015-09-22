@@ -19,6 +19,7 @@ Description :   */
 #include "TwoTilePiece.h"
 #include "ThreeTilePiece.h"
 #include "Map.h"
+#include "MapCamouflage.h"
 
 //Raccourci pour les laches 
 #define PAUSE system("pause>NUL")
@@ -143,9 +144,10 @@ void main()
 {
 	//Tests sur la classe Map de base
 	//=================================================================================================================
-	testMapVide();
-	testMapExp25();
-	testMapDivers();
+	//testMapVide();
+	//testMapExp25();
+	//testMapDivers();
+	MapCamouflage exp25("./Maps/mapExpert25.txt");
 
 	system("pause>NUL");
 

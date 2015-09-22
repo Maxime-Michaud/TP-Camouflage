@@ -29,13 +29,13 @@ public:
 	
 	//Piece();													//constructeur par défaut
 	//Piece(char name, char a1, char a2, char b1, char b2);		//constructeur avec paramètres
-	virtual ~Piece();													//destructeur
+	virtual ~Piece();											//destructeur
 
 	void init(char name, char a1, char a2, char b1, char b2);	//initialise la pièce
 
 	char getName() const;										//getter du nom
 	int getRotation() const;									//getter de la rotation
-	Tile Piece::getTile(int line, int column) const;			//getter de la case
+	Tile getTile(int line, int column) const;			//getter de la case
 
 	void print(ostream &out) const;								//affiche la pièce
 

@@ -27,7 +27,7 @@ protected:
 
 public:
 	Map();											//Constructeur vide. N'initialise rien.
-	Map(Map & other);								//Constructeur de copie. Copie les valeurs de la map
+	Map(const Map & other);								//Constructeur de copie. Copie les valeurs de la map
 	Map(const string & filepath);					//Construit et initialise la map
 	virtual ~Map();									//Efface les pointeurs en mémoire dynamique
 
