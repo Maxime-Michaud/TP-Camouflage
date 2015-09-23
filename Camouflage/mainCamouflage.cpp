@@ -15,11 +15,13 @@ Description :   */
 
 /* Directives au pré-processeur
 ================================= */
+#include "autosfml.h"
 #include "Piece.h"
 #include "TwoTilePiece.h"
 #include "ThreeTilePiece.h"
 #include "Map.h"
 #include "MapCamouflage.h"
+#include "GUI.h"
 
 //Raccourci pour les laches 
 #define PAUSE system("pause>NUL")
@@ -132,7 +134,7 @@ void testMapDivers()
 {
 	try {
 		cout << "Initialisation avec un fichier invalide\n";
-		Map fail("..\~./Obviously`very !WRONG! filepath..notatxtfile");
+		Map fail("..\\~./Obviously`very !WRONG! filepath..notatxtfile");
 	}
 	catch (const exception & e)
 	{
@@ -142,12 +144,7 @@ void testMapDivers()
 //Fonction main de test
 void main()
 {
-	//Tests sur la classe Map de base
-	//=================================================================================================================
-	//testMapVide();
-	//testMapExp25();
-	//testMapDivers();
-	MapCamouflage exp25("./Maps/mapExpert25.txt");
+	GUI graphics;
 
 	system("pause>NUL");
 

@@ -69,15 +69,3 @@ MapCamouflage::~MapCamouflage()
 }
 
 //Vérifie si il est possible de placer la pièce a la position x, y
-bool MapCamouflage::tryPieceAt(const Piece & piece, int x, int y) const
-{
-	//Si il y a déjà une pièce aux positions de la piece, retourne false
-	for (int i = 0; i < 2; i++)
-		for (int j = 0; j < 2; j++)
-			//Vérifie si il y a une colision entre deux pièces
-			if (piece.getTile(i, j).getValid() && _pieces[x + i][y + j][0] != '\0')
-				return false;
-				
-	for (int i = 0; i < 2; i++)
-		for (int j = 0; j < 2;j++)
-}
