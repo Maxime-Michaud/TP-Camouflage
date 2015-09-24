@@ -9,6 +9,21 @@ Description :   */
 
 #include "Camouflage.h"
 
+//Retourne le temps actuel à un certain moment dans le temps
+struct tm *tempActuel()
+{
+
+	time_t now;
+	struct tm *temps;
+
+	time(&now);
+	temps = localtime(&now);
+	int second = temps->tm_sec;
+	int minute = temps->tm_min;
+
+	return temps;
+}
+
 //Constructeur
 Camouflage::Camouflage() {
 
@@ -20,7 +35,6 @@ Camouflage::Camouflage() {
 	_gamePieces[4] = new TwoTilePiece('Y', 'P', 'O', '\0', '\0');
 	_gamePieces[5] = new ThreeTilePiece('Z', ' ', '\0', 'O', ' ');
 
-	_solveTime = 0;
 	_isSolved = false;
 
 }
@@ -33,7 +47,6 @@ Camouflage::~Camouflage() {
 		delete _gamePieces[i];
 	}
 	
-	_solveTime = 0;
 	_isSolved = false;
 }
 
@@ -69,6 +82,8 @@ void Camouflage::start() {
 
 	ofstream output;
 	string mapName;
+	struct tm *startTime;
+	struct tm *endTime;
 
 	cout << "Bienvenue au solutionnaire du jeu Camouflage" << endl
 		<< "(parce qu'on est fondamentalement lâches)" << endl;
@@ -80,15 +95,15 @@ void Camouflage::start() {
 	output.open(mapName);
 
 	//Solutionne la map choisie à partir de la première pièce
+	startTime = tempActuel();
 	_isSolved = solve(0);
+	endTime = tempActuel();
 
 	//Affiche le résultat du jeu en console et en sortie
 	print(cout);
-
+	showTime(cout, startTime, endTime);
 	print(output);
-
-
-
+	showTime(output, startTime, endTime);
 	output.close();
 
 }
@@ -103,8 +118,8 @@ bool Camouflage::solve(int nbPiece) {
 
 	//pour toutes les cases de la map, chaque position de la map
 	//ainsi que chaque rotation de la pièce
-	for (int i = 0; i < _gameMap.getSizeX() - 1; i++) {
-		for (int j = 0; j < _gameMap.getSizeY() - 1; j++) {
+	for (int i = 0; i < _gameMap.getSizeX(); i++) {
+		for (int j = 0; j < _gameMap.getSizeY(); j++) {
 			for (int r = 0; r < 4; r++) {
 				if (_gameMap.tryPieceAt(*(_gamePieces[nbPiece]), i, j)) {
 					_gameMap.placeNewPiece(*(_gamePieces[nbPiece]), i, j);
@@ -127,7 +142,7 @@ bool Camouflage::solve(int nbPiece) {
 
 void Camouflage::print(ostream& out) const {
 	if (_isSolved) {
-		out << "C'est fait! La solution a été réalisée en : " << _solveTime << " secondes." <<  endl; 
+		out << "C'est fait!" ; 
 		out << _gameMap;
 	}
 	else {
@@ -138,4 +153,28 @@ void Camouflage::print(ostream& out) const {
 ostream& operator<< (ostream& out, const Camouflage& camo){
 	camo.print(out);
 	return out;
+}
+
+//Calcule le début et la fin de l'exécution de la solution
+void Camouflage::showTime(ostream& out, struct tm *timeDebut, struct tm *timeFin)
+{
+	out << "\nTemps d'exécution ";
+
+
+	int secondDebut = timeDebut->tm_sec;
+	int minuteDebut = timeDebut->tm_min;
+
+
+	int secondFin = timeFin->tm_sec;
+	int minuteFin = timeFin->tm_min;
+
+
+	if (minuteFin > minuteDebut)
+		out << minuteFin - minuteDebut << " min. ";
+
+
+	if (secondFin > secondDebut)
+		out << secondFin - secondDebut << " sec." << endl;
+	else
+		out << (60 - secondDebut) + secondFin << " secondes" << endl;
 }

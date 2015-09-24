@@ -90,12 +90,25 @@ void MapCamouflage::initSolution() {
 bool MapCamouflage::tryPieceAt(const Piece & piece, int x, int y) const
 {
 
-	//Si il y a déjà une pièce aux positions de la piece, retourne false
-	for (int i = 0; i < 2; i++)
-		for (int j = 0; j < 2; j++)
-			//Vérifie si il y a une collision entre deux pièces
-			if (piece.getTile(i, j).getValid() && _solution[x + i][y + j][0] != '\0')
+	//Si l'une des tuiles de la pièce tombe out of bounds, retourne faux
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < 2; j++) {
+			if (x + i >= _lignes || y + j >= _colonnes) {
 				return false;
+			}
+		}
+	}
+
+	//Si il y a déjà une pièce aux positions de la piece, retourne false
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < 2; j++) {
+			//Vérifie si la pièce ne rentre pas en collision avec une autre
+			if (piece.getTile(i, j).getValid() && _solution[x + i][y + j][0] != '\0') {
+				return false;
+			}
+		}	
+	}
+		
 	
 	//Vérifie si la pièce correspond à l'endroit donné dans la map
 	for (int i = 0; i < 2; i++) {

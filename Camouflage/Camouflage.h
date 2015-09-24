@@ -11,6 +11,7 @@ Description :   Classe principale du jeu Camouflage */
 #include "Piece.h"
 #include "ThreeTilePiece.h"
 #include "TwoTilePiece.h"
+#include <time.h>
 
 using namespace std;
 
@@ -21,7 +22,6 @@ private:
 	bool _isSolved;				//détermine si le tout est solutionné
 	Piece *_gamePieces[6];		//pièces du jeu
 	MapCamouflage _gameMap;		//tous les éléments en rapport avec la map
-	float _solveTime;			//temps pris pour réaliser la solution
 
 public:
 	Camouflage();	//constructeur
@@ -31,6 +31,8 @@ public:
 	void print(ostream &out) const;		//affiche le résultat du jeu
 	bool solve(int nbPiece);			//solutionne la map
 	void start();						//démarre le solutionnaire
+	void showTime(ostream& out, struct tm *timeDebut, struct tm *timeFin);	//affiche le temps d'exécution
+
 };
 
 ostream& operator<< (ostream& out, const Camouflage& camo);
