@@ -1,2 +1,5 @@
-﻿  Map.cpp
+﻿  MapCamouflage.cpp
+  Map.cpp
+  Génération de code en cours...
+e:\camouflage\camouflage\mapcamouflage.cpp(163): warning C4715: 'MapCamouflage::isBoardFull' : les chemins de contrôle ne retournent pas tous une valeur
   Camouflage.vcxproj -> E:\Camouflage\Debug\Camouflage.exe
