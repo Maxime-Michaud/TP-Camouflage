@@ -17,19 +17,21 @@ GUI::GUI()
 	
 	//Affichage du message d'accueil
 	write("Bienvenue au solutionnaire!", Center, 0, Header);
-
+	TextBox textBox("Quel map voulez-vous résoudre?", _font, 150, _window);
+	textBox.setText("Test text");
+	_window.draw(textBox);
 	_window.display();
 }
 
 
-void GUI::write(string text, float x, float y, TextSize size, sf::Text::Style style)
+void GUI::write(const string & text, float x, float y, TextSize size, sf::Text::Style style)
 {
 	sf::Text txt(text, _font, size);
 	txt.setPosition(x, y);
 	_window.draw(txt);
 }
 
-void GUI::write(string text, Alignment align, float y, TextSize size, sf::Text::Style style)
+void GUI::write(const string & text, Alignment align, float y, TextSize size, sf::Text::Style style)
 {
 	sf::Text txt(text, _font, size);
 
@@ -52,3 +54,5 @@ void GUI::write(string text, Alignment align, float y, TextSize size, sf::Text::
 
 	_window.draw(txt);
 }
+
+

@@ -1,1 +1,13 @@
-﻿  Camouflage.vcxproj -> E:\Camouflage\Debug\Camouflage.exe
+﻿  TextBox.cpp
+e:\camouflage\camouflage\textbox.cpp(21): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+e:\camouflage\camouflage\textbox.cpp(32): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+e:\camouflage\camouflage\textbox.cpp(90): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+e:\camouflage\camouflage\textbox.cpp(98): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+e:\camouflage\camouflage\textbox.cpp(104): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+e:\camouflage\camouflage\textbox.cpp(105): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+e:\camouflage\camouflage\textbox.cpp(106): warning C4244: 'initialisation' : conversion de 'float' en 'int', perte possible de données
+e:\camouflage\camouflage\textbox.cpp(108): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+e:\camouflage\camouflage\textbox.cpp(109): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+e:\camouflage\camouflage\textbox.cpp(126): warning C4244: 'argument' : conversion de 'unsigned int' en 'float', perte possible de données
+e:\camouflage\camouflage\textbox.cpp(129): warning C4244: 'argument' : conversion de 'unsigned int' en 'float', perte possible de données
+  Camouflage.vcxproj -> E:\Camouflage\Debug\Camouflage.exe
