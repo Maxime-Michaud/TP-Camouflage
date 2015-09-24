@@ -1,10 +1,10 @@
 /* En-tête du programme
 =========================
-Programme: Camouflage
-Fichier: Tile.cpp
-Auteur : Amélie Frappier et Maxime Michaud-Corriveau
-Date création : 04/09/2015
-Date modification:
+Programme:		Camouflage
+Fichier:		Tile.cpp
+Auteur :		Amélie Frappier et Maxime Michaud-Corriveau
+Création :		04/09/2015
+Modification:	04/09/2015
 Description :   */
 
 /* Directives au pré-processeur

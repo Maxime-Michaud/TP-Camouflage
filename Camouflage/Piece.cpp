@@ -12,6 +12,7 @@ Description :   */
 #include "Piece.h"
 
 using namespace std;
+
 /* Destructeur
 ==============*/
 
