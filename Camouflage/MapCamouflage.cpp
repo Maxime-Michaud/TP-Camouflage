@@ -143,7 +143,7 @@ void MapCamouflage::placeNewPiece(const Piece & piece, int x, int y) {
 void MapCamouflage::removePiece(const Piece & piece, int x, int y) {
 	for (int i = 0; i < 2; i++) {
 		for (int j = 0; j < 2; j++) {
-			if (_solution[x + i][y + j][0] = piece.getName() == piece.getName()) {
+			if (_solution[x + i][y + j][0] == piece.getName()) {
 				_solution[x + i][y + j][0] = '\0';
 				_solution[x + i][y + j][1] = '\0';
 			}

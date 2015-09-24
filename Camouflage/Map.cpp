@@ -120,7 +120,7 @@ inline void Map::init(const string & filepath)
 		
 	for (int i = 0; i < _lignes; i++)
 		for (int j = 0; j < _colonnes; j++)
-			_map[i][j] = fileContent.c_str()[i + j * _colonnes];
+			_map[i][j] = fileContent[i + j * _colonnes];
 }
 
 inline void Map::print(ostream & sortie) const

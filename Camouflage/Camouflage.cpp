@@ -30,7 +30,7 @@ Camouflage::~Camouflage() {
 
 	//Suppression des pièces
 	for (int i = 0; i < 6; i++) {
-		delete[]_gamePieces;
+		delete _gamePieces[i];
 	}
 	
 	_solveTime = 0;
@@ -84,9 +84,10 @@ void Camouflage::start() {
 
 	//Affiche le résultat du jeu en console et en sortie
 	print(cout);
-	if (_isSolved) {
-		print(output);
-	}
+
+	print(output);
+
+
 
 	output.close();
 
@@ -115,13 +116,13 @@ bool Camouflage::solve(int nbPiece) {
 						return true;
 					}
 				}
+				_gamePieces[nbPiece]->rotation();
 			}
-			_gamePieces[nbPiece]->rotation();
 		}
 	}
 
 	//Si la map ne peut être solutionnée, retourner faux
-	//return false;
+	return false;
 }
 
 void Camouflage::print(ostream& out) const {
