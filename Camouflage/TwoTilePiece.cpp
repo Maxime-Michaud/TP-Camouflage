@@ -52,27 +52,20 @@ int TwoTilePiece::rotation() {
 		Rotation 2 -> 3
 			swap(_tiles[1][0], _tiles[0][1])
 		Rotation 3->0
-			swap(_tiles[0][1], _tiles[0][0]
+			swap(_tiles[0][1], _tiles[0][0])
 
 	*/
-	switch (_rotation)
-	{
-	case 0:			
-		swap(_tiles[0][1], _tiles[1][0]);
-		break;
-	case 1:
-		swap(_tiles[0][0], _tiles[1][0]);
-		break;
-	case 2:
-		swap(_tiles[1][0], _tiles[0][1]);
-		break;
-	case 3:
-		swap(_tiles[0][1], _tiles[0][0]);
-		break;
+	Piece::rotation();
+	//Échange les pièces après 4 ou 8 rotations pour essayer toutes les possibilités
+	if (_rotation % 4 == 0) {
+		swap(
+			_tiles[_validTiles[0].first][_validTiles[0].second],
+			_tiles[_validTiles[1].first][_validTiles[1].second]
+			);
+		//Toutes les possibilité ont étés essayées
+		if (_rotation == 8)
+			_rotation = 0;
 	}
-
-	//Incrémente la rotation ou la reset a 0
-	_rotation = (_rotation + 1) % 4;
 
 	return _rotation;
 }
