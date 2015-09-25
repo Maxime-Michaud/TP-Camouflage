@@ -38,7 +38,6 @@ Map::~Map()
 
 	for (int i = 0; i < _lignes; i++)
 		delete[] _map[i];
-
 	delete[] _map;
 
 	_map = nullptr;
@@ -118,8 +117,8 @@ inline void Map::init(const string & filepath)
 
 	}
 		
-	for (int i = 0; i < _lignes; i++) {
-		for (int j = 0; j < _colonnes; j++) {
+	for (int i = 0; i < _lignes; i++){
+		for (int j = 0; j < _colonnes; j++){
 			*(*_map + _colonnes * i + j) = fileContent.c_str()[i *_colonnes + j];
 		}
 	}

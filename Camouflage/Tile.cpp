@@ -39,7 +39,7 @@ bool Tile::getValid() const {
 =========== */
 void Tile::setValue(char value) {
 	
-	if (value != NULL) {
+	if (value != '\0') {
 		_value = value;
 		_valid = true;
 	} 
