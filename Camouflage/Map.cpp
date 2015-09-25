@@ -94,7 +94,7 @@ inline void Map::init(const string & filepath)
 	//Crée la nouvelle map
 	_map = new char *[_lignes];
 	for (int i = 0; i < _lignes; i++)
-		_map[i] = new char[_colonnes];
+		_map[i] = new char[_colonnes + 1]; //+1 pour \0
 
 	//Lis le fichier jusqu'a la fin
 	string fileContent = "";
@@ -117,11 +117,10 @@ inline void Map::init(const string & filepath)
 
 	}
 		
-	for (int i = 0; i < _lignes; i++){
-		for (int j = 0; j < _colonnes; j++){
-			*(*_map + _colonnes * i + j) = fileContent.c_str()[i *_colonnes + j];
-		}
-	}
+	strcpy(*_map, fileContent.substr(0, 4).c_str());
+	strcpy(*(_map + 1), fileContent.substr(4, 4).c_str());
+	strcpy(*(_map +2), fileContent.substr(8, 4).c_str());
+	strcpy(*(_map + 3), fileContent.substr(12, 4).c_str());
 }
 
 inline void Map::print(ostream & sortie) const
