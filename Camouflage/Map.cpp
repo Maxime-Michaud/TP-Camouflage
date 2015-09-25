@@ -94,7 +94,7 @@ inline void Map::init(const string & filepath)
 	//Crée la nouvelle map
 	_map = new char *[_lignes];
 	for (int i = 0; i < _lignes; i++)
-		_map[i] = new char[_colonnes + 1]; //+1 pour \0
+		_map[i] = new char[_colonnes + 1];
 
 	//Lis le fichier jusqu'a la fin
 	string fileContent = "";
