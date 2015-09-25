@@ -118,12 +118,12 @@ bool MapCamouflage::tryPieceAt(const Piece & piece, int x, int y) const
 				//Retourne faux si la pièce ne concorde pas avec la map
 				switch  (*(*_map + (i + x) * _colonnes + j + y)) {
 				case 'E':
-					if (piece.getTile(i,j).getValue() != 'P') {
+					if (piece.getTile(i,j).getValue() == 'O') {
 						return false;
 					}
 					break;
 				case 'B':
-					if (piece.getTile(i, j).getValue() != 'O') {
+					if (piece.getTile(i, j).getValue() == 'P') {
 						return false;
 					}
 					break;
@@ -131,6 +131,9 @@ bool MapCamouflage::tryPieceAt(const Piece & piece, int x, int y) const
 					if (piece.getTile(i, j).getValue() != ' ') {
 						return false;
 					}
+					break;
+				default:
+					return false;
 					break;
 				}
 			}
