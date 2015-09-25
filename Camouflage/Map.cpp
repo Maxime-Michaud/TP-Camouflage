@@ -119,7 +119,7 @@ inline void Map::init(const string & filepath)
 		
 	strcpy(*_map, fileContent.substr(0, 4).c_str());
 	strcpy(*(_map + 1), fileContent.substr(4, 4).c_str());
-	strcpy(*(_map +2), fileContent.substr(8, 4).c_str());
+	strcpy(*(_map + 2), fileContent.substr(8, 4).c_str());
 	strcpy(*(_map + 3), fileContent.substr(12, 4).c_str());
 }
 
