@@ -115,8 +115,7 @@ bool Camouflage::solve(int nbPiece) {
 			for (int r = 0; r < 4; r++) {
 				if (_gameMap.tryPieceAt(*(_gamePieces[nbPiece]), i, j)) {
 					_gameMap.placeNewPiece(*(_gamePieces[nbPiece]), i, j);
-					bool isSolved = solve(nbPiece + 1);
-					if (!isSolved) {
+					if (!solve(nbPiece + 1)) {
 						_gameMap.removePiece(*(_gamePieces[nbPiece]),i,j);
 					}
 					else {

@@ -1,0 +1,2 @@
+Il est impossible de solutionner cette carte de jeu.
+Temps d'exécution 60 secondes

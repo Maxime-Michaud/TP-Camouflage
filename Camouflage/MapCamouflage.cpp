@@ -116,7 +116,7 @@ bool MapCamouflage::tryPieceAt(const Piece & piece, int x, int y) const
 			if (piece.getTile(i, j).getValid()) {
 				//Compare l'élément sur la map avec la pièce
 				//Retourne faux si la pièce ne concorde pas avec la map
-				switch (_map[x][y]) {
+				switch  (*(*_map + (i + x) * _colonnes + j + y)) {
 				case 'E':
 					if (piece.getTile(i,j).getValue() != 'P') {
 						return false;
