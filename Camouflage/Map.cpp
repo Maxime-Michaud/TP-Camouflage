@@ -38,7 +38,6 @@ Map::~Map()
 
 	for (int i = 0; i < _lignes; i++)
 		delete[] _map[i];
-
 	delete[] _map;
 
 	_map = nullptr;

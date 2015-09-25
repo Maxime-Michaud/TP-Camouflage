@@ -129,7 +129,7 @@ bool Camouflage::solve(int nbPiece) {
 	}
 
 	//Si la map ne peut être solutionnée, retourner faux
-	//return false;
+	return false;
 }
 
 void Camouflage::print(ostream& out) const {
