@@ -146,8 +146,10 @@ bool MapCamouflage::tryPieceAt(const Piece & piece, int x, int y) const
 void MapCamouflage::placeNewPiece(const Piece & piece, int x, int y) {
 	for (int i = 0; i < 2; i++) {
 		for (int j = 0; j < 2; j++) {
-			_solution[x + i][y + j][0] = piece.getName();
-			_solution[x + i][y + j][1] = piece.getTile(i, j).getValue();
+			if (piece.getTile(i, j).getValid()) {
+				_solution[x + i][y + j][0] = piece.getName();
+				_solution[x + i][y + j][1] = piece.getTile(i, j).getValue();
+			}
 		}
 	}
 }

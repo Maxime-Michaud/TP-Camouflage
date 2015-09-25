@@ -66,14 +66,6 @@ string Camouflage::getMap() {
 	_gameMap.init(mapFilePath);
 	_gameMap.initSolution();
 
-	//_gameMap = MapCamouflage(mapFilePath);
-
-	//TODO: Refaire la loop tant que map n'est pas vide.
-	/*do {
-		saisirStringNonVide("Saisissez le nom de la map à solutionner : ");
-		_gameMap.init(mapName);	
-	} while ();*/
-
 	return mapName;
 }
 
@@ -137,7 +129,7 @@ bool Camouflage::solve(int nbPiece) {
 	}
 
 	//Si la map ne peut être solutionnée, retourner faux
-	return false;
+	//return false;
 }
 
 void Camouflage::print(ostream& out) const {
