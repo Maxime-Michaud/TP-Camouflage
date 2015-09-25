@@ -112,7 +112,7 @@ bool Camouflage::solve(int nbPiece) {
 	//ainsi que chaque rotation de la pièce
 	for (int i = 0; i < _gameMap.getSizeX(); i++) {
 		for (int j = 0; j < _gameMap.getSizeY(); j++) {
-			for (int r = 0; r < 4; r++) {
+			for (int r = 0; r < 8; r++) {
 				if (_gameMap.tryPieceAt(**(_gamePieces + nbPiece), i, j)) {
 					_gameMap.placeNewPiece(**(_gamePieces + nbPiece), i, j);
 					if (!solve(nbPiece + 1)) {
