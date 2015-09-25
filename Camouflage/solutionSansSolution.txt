@@ -1,6 +1,2 @@
-C'est fait!
-UP XP XP YP 
-U  UO VO YO 
-WO V  VP Z  
-W  WP Z  ZO 
+Il est impossible de solutionner cette carte de jeu.
 Temps d'exécution 60 secondes
